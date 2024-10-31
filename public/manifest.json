@@ -1,0 +1,26 @@
+
+{
+    "manifest_version": 3,
+    "name": "Grounded",
+    "description": "Scanning emails locally using small LLM",
+    "version": "1.0.0",
+    "background": {
+      "service_worker": "background.js"
+    },
+    "permissions": ["storage", "activeTab", "scripting", "tabs"],
+    "host_permissions": [
+      "https://mail.google.com/*"
+    ],
+    "action": {
+      "default_popup": "index.html"
+    },
+    "icons": {
+      "32": "vite.svg"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://mail.google.com/*"],
+        "js": ["contentScript.js"]
+      }
+    ]
+  }
